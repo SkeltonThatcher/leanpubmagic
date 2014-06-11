@@ -53,3 +53,9 @@ Pre-requisites
 
 - The scripts use `curl` to talk to the LeanPub API. On Windows, you probably have `curl` through your Git tools, but if not, simply install Git bash from [http://git-scm.com/download/win](http://git-scm.com/download/win) - `curl` comes with Git bash.
 - You will also need a Dropbox client installed locally, and a Dropbox account wired up to LeanPub (see [https://leanpub.com/help/getting_started_sync_dropbox](https://leanpub.com/help/getting_started_sync_dropbox) for details).
+
+TODO
+----
+
+  1. Actually check the env vars before running the scripts.
+  1. Document a worked example
