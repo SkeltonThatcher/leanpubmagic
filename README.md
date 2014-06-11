@@ -29,12 +29,14 @@ There are four environment variables that you need to set before the LeanPub Mag
 
   1. LEANPUB\_BOOK\_NAME - the name of the LeanPub book as used in the LeanPub URL: e.g. for [https://leanpub.com/mybook](https://leanpub.com/mybook), the name is 'mybook'
   1. LEANPUB\_GIT\_DIR - the path to the directory within the local Git repo that contains the LeanPub 'manuscript' directory
-  1. DROPBOX\_DIR - the path to the local Dropbox directory for the LeanPub book
-  1. LEANPUB\_API\_KEY - your LeanPub API key
+  1. DROPBOX\_DIR - the path to the top-level local Dropbox directory (containing the Dropbox shared folder called LEANPUB\_BOOK\_NAME)
+  1. LEANPUB\_API\_KEY - your LeanPub API key (find this at [https://leanpub.com/dashboard/account](https://leanpub.com/dashboard/account))
   
-Of these, LEANPUB\_API\_KEY is likely to remain constant across multiple books, whereas the other variables will likely change for different books, allowing you to author more than one book using the same LeanPub Magic scripts.
+Of these, LEANPUB\_API\_KEY and DROPBOX\_DIR are likely to remain constant across multiple books, whereas the other variables will likely change for different books. This allows you to author more than one book using the same LeanPub Magic scripts with minimal reconfiguration - you just need to update LEANPUB\_BOOK\_NAME and LEANPUB\_GIT\_DIR when switching to work on a new book.
 
 During script execution, these variables are checked for sane values; the scripts exit if the variables are not set.
+
+You probably want to add the `scripts` subdirectory to your PATH to make the scripts easier to run.
 
 Workflow
 --------
@@ -46,7 +48,58 @@ The combination of Git for version control and Dropbox for publishing control is
   1. When the Dropbox upload has completed, run the *LeanPreview* script, which triggers a preview generation; the `curl` call returns immediately.
   1. If required, run the *LeanStatus* script repeatedly in order to track the progress (status) of the preview generation. When the preview generation has completed, *LeanStatus* returns an empty JSON object.
 
+Put simply, when you want to generate a new Preview, you run: `LeanCopy`, then `LeanPreview`, and then optionally `LeanStatus`.
+  
 Note: a script to automatically trigger a *Publish* of the book has not been included here, as a publish operation is probably best left as a manual thing via the browser.  
+
+Example: Linux/Mac
+------------------
+
+(TODO)
+
+Example: Windows
+----------------
+
+Setup the env vars:
+
+`C:\>set LEANPUB_BOOK_NAME=myleanpubbook`
+
+`C:\>set LEANPUB_GIT_DIR=C:\Data\Git\myleanpubbook`
+
+`C:\>set DROPBOX_DIR=C:\Users\Me\Dropbox`
+
+`C:\>set LEANPUB_API_KEY=uu89mkwlmlkckewl4839`
+
+`set path=%path%;C:\Data\Git\leanpubmagic\scripts`
+
+Copy the files from Git to Dropbox:
+
+	C:\>LeanCopy
+	
+	C:\>xcopy /d /i /e /y C:\Data\Git\myleanpubbook\manuscript C:\Users\Me\Dropbox\myleanpubbook\manuscr
+	ipt
+	C:\Data\Git\myleanpubbook\manuscript\Book.txt
+	C:\Data\Git\myleanpubbook\manuscript\Sample.txt
+	2 File(s) copied
+
+Trigger a Preview operation:
+
+	C:\>LeanPreview
+	
+	C:\>curl -d "api_key=uu89mkwlmlkckewl4839" "https://leanpub.com/myleanpubbook/preview.json"
+	{"success":true}`
+
+Check the status of the Preview operation:
+
+	C:\>LeanStatus
+	
+	C:\>curl "https://leanpub.com/myleanpubbook/book_status?api_key=uu89mkwlmlkckewl4839"
+	{"time":1402523233,"status":"working","options":{"slug":"myleanpubbook","action":"preview","email_re
+	aders":false,"requested_by":"email@domain.com","provenance":"api"},"name":"Preview myleanpubbook","m
+	essage":"Generating PDF","job_type":"GenerateBookJob#preview","hide_from_author":false,"num":14,"tot
+	al":28}`
+
+
 
 Pre-requisites
 --------------
@@ -57,5 +110,5 @@ Pre-requisites
 TODO
 ----
 
-  1. Actually check the env vars before running the scripts.
-  1. Document a worked example
+  1. Actually check the env vars before running the scripts (!).
+  1. Document a worked example for Linux/Mac
