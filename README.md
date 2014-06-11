@@ -16,7 +16,7 @@ On the *Settings > Writing* page of your LeanPub book, for the *How do you want 
 
 ![Screenshot of LeanPub writing settings](docs/LeanPub-Writing-settings.png "Dropbox option chosen")
 
-- `LeanCopy`: copies files from the local Git repo to the local LeanPub Dropbox directory
+- `LeanCopy`: copies files from the local Git repo to the local LeanPub Dropbox directory *if* the files in Git are newer than those in Dropbox (avoids accidents)
 - `LeanPreview`: triggers a book preview generation (async)
 - `LeanStatus`: checks the progress (status) of a preview operation 
 
