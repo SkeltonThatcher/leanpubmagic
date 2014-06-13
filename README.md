@@ -55,7 +55,27 @@ Note: a script to automatically trigger a *Publish* of the book has not been inc
 Example: Linux/Mac
 ------------------
 
-(TODO)
+Clone the leanpubmagic repo into a suitable location, and ensure the .sh file are executable, use chmod as necessary. 
+
+Setup the env vars:
+
+export LEANPUB_BOOK_NAME=myleanpubbook
+export LEANPUB_GIT_DIR=/Users/rob/git
+export LEANPUB_API_KEY=ii3434lr34lktj3ltkj
+export DROPBOX_DIR=/Users/rob/Dropbox
+
+After you latest edits, and git commit, Copy the files to dropbox, run:
+
+$./LeanCopy.sh
+
+After the copy operation successfully comples, you can start a preview generation, run:
+
+$LeanPreview.sh
+
+Checking on preview generation progress can be done by running:
+
+$LeanStatus.sh
+
 
 Example: Windows
 ----------------
