@@ -59,22 +59,25 @@ Clone the leanpubmagic repo into a suitable location, and ensure the .sh file ar
 
 Setup the env vars:
 
-export LEANPUB_BOOK_NAME=myleanpubbook
-export LEANPUB_GIT_DIR=/Users/rob/git
-export LEANPUB_API_KEY=ii3434lr34lktj3ltkj
-export DROPBOX_DIR=/Users/rob/Dropbox
+`export LEANPUB_BOOK_NAME=myleanpubbook`
+
+`export LEANPUB_GIT_DIR=/Users/rob/git`
+
+`export LEANPUB_API_KEY=ii3434lr34lktj3ltkj`
+
+`export DROPBOX_DIR=/Users/rob/Dropbox`
 
 After you latest edits, and git commit, Copy the files to dropbox, run:
 
-$./LeanCopy.sh
+`$./LeanCopy.sh`
 
 After the copy operation successfully comples, you can start a preview generation, run:
 
-$LeanPreview.sh
+`$LeanPreview.sh`
 
 Checking on preview generation progress can be done by running:
 
-$LeanStatus.sh
+`$LeanStatus.sh`
 
 
 Example: Windows
@@ -131,4 +134,4 @@ TODO
 ----
 
   1. Actually check the env vars before running the scripts (!).
-  1. Document a worked example for Linux/Mac
+  
