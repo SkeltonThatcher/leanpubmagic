@@ -17,7 +17,7 @@ On the *Settings > Writing* page of your LeanPub book, for the *How do you want 
 ![Screenshot of LeanPub writing settings](docs/LeanPub-Writing-settings.png "Dropbox option chosen")
 
 - `LeanCopy`: copies files from the local Git repo to the local LeanPub Dropbox directory *if* the files in Git are newer than those in Dropbox (avoids accidents)
-- `LeanPartial`: triggers a partial book preview based on `Subset.txt`
+- `LeanPartial`: triggers a partial book preview based on `Subset.txt` - Preview must be set to 'Subset Preview' in Leanpub UI
 - `LeanPreview`: triggers a book preview generation (async)
 - `LeanStatus`: checks the progress (status) of a preview operation 
 
@@ -93,7 +93,7 @@ total size is 5318119  speedup is 14031.98
 
 After the copy operation successfully comples, you can start a preview generation, run:
 
-`$LeanPreview.sh` or `$LeanPartial.sh`
+`$LeanPreview.sh` or `$LeanPartial.sh` if you are using 'Subset.txt' and 'Subset Previews from Leanpub UI
 
 Checking on preview generation progress can be done by running:
 
