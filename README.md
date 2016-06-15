@@ -58,7 +58,17 @@ Example: Linux/Mac
 
 Clone the leanpubmagic repo into a suitable location, and ensure the .sh file are executable, use chmod as necessary. 
 
-Setup the env vars:
+To make it easy to call the setup, you could do the following
+
+1. Clone repo into ~/bin/
+1. Use chmod to make the scripts executable
+1. Symlink ~/bin/LeanCopy.sh to ~/bin/leanpubmagic/scripts/LeanCopy.sh etc.
+1. Create a file called *bookname*.settings containing the env vars as show below
+1. Setup a shell alias like such as "alias setup-*bookname*-env='source ~/*path_to*/yourbook.settings' " in your .profile/.bash_profile etc
+
+Now when you start you terminal app and call your alias your environment vars should be setup, and the scripts available.
+
+ Required env vars:
 
 `export LEANPUB_BOOK_NAME=myleanpubbook`
 
@@ -68,9 +78,18 @@ Setup the env vars:
 
 `export DROPBOX_DIR=/Users/rob/Dropbox`
 
-After you latest edits, and git commit, Copy the files to dropbox, run:
+
+After your latest edits, and git commit, Copy the files to dropbox, run:
 
 `$./LeanCopy.sh`
+> 0 10:46:31 510 $ LeanCopy.sh 
+building file list ... done
+manuscript/
+manuscript/images/
+
+sent 347 bytes  received 32 bytes  758.00 bytes/sec
+total size is 5318119  speedup is 14031.98
+
 
 After the copy operation successfully comples, you can start a preview generation, run:
 
