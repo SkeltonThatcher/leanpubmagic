@@ -31,7 +31,7 @@ There are four environment variables that you need to set before the LeanPub Mag
   1. LEANPUB\_BOOK\_NAME - the name of the LeanPub book as used in the LeanPub URL: e.g. for [https://leanpub.com/mybook](https://leanpub.com/mybook), the name is 'mybook'
   1. LEANPUB\_GIT\_DIR - the path to the directory within the local Git repo that contains the LeanPub 'manuscript' directory
   1. DROPBOX\_DIR - the path to the top-level local Dropbox directory (containing the Dropbox shared folder called LEANPUB\_BOOK\_NAME)
-  1. LEANPUB\_API\_KEY - your LeanPub API key (find this at [https://leanpub.com/dashboard/account](https://leanpub.com/dashboard/account))
+  1. LEANPUB\_API\_KEY - your LeanPub API key (find this at [https://leanpub.com/author_dashboard/settings](https://leanpub.com/author_dashboard/settings))
   
 Of these, LEANPUB\_API\_KEY and DROPBOX\_DIR are likely to remain constant across multiple books, whereas the other variables will likely change for different books. This allows you to author more than one book using the same LeanPub Magic scripts with minimal reconfiguration - you just need to update LEANPUB\_BOOK\_NAME and LEANPUB\_GIT\_DIR when switching to work on a new book.
 
